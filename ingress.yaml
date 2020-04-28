@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: kube-ops
+  name: jenkins2-ingress
+spec:
+  rules:
+  - host:  jenkins.172.16.20.110.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins2
+          servicePort: 8080
+        path: /
+    

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-depend
+  labels:
+    alicloud-pvname: jenkins-depend
+spec:
+  capacity:
+    storage: 200Gi
+  storageClassName: nas
+  accessModes:
+    - ReadWriteMany
+  flexVolume:
+    driver: "alicloud/nas"
+    options:
+      server: "29bd248034-ppd30.cn-shenzhen.nas.aliyuncs.com"
+      path: "/jenkins-depend"
+      vers: "3"
+      options: "nolock,tcp,noresvport"
